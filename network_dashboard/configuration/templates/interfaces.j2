@@ -1,0 +1,5 @@
+{% for int in interfaces %}
+interface {{ int.interface }}
+ ip address {{ int.ip }} {{ int.subnet }}
+ no shutdown
+{% endfor %}

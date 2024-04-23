@@ -1,0 +1,102 @@
+{
+    "interfaces": [
+        {
+            "interface": "f0/0",
+            "ip": "10.0.3.2",
+            "subnet": "255.255.255.252"
+        },
+        {
+            "interface": "f1/0",
+            "ip": "10.0.1.2",
+            "subnet": "255.255.255.252"
+        },
+        {
+            "interface": "f1/1",
+            "ip": "10.0.5.1",
+            "subnet": "255.255.255.252"
+        },
+        {
+            "interface": "g2/0",
+            "ip": "10.0.6.1",
+            "subnet": "255.255.255.252"
+        },
+        {
+            "interface": "g3/0",
+            "ip": "198.51.100.4",
+            "subnet": "255.255.255.0"
+        },
+        {
+            "interface": "lo0",
+            "ip": "3.3.3.3",
+            "subnet": "255.255.255.255"
+        }
+    ],
+    "bgp": {
+        "asn": "200",
+        "neighbors": [
+            {
+                "neighbor_ip": "10.0.3.1",
+                "remote_as": "101"
+            },
+            {
+                "neighbor_ip": "10.0.1.1",
+                "remote_as": "100"
+            },
+            {
+                "neighbor_ip": "10.0.5.2",
+                "remote_as": "300"
+            },
+            {
+                "neighbor_ip": "10.0.6.2",
+                "remote_as": "301"
+            }
+        ],
+        "networks": [
+            {
+                "network": "3.3.3.3",
+                "mask": "255.255.255.255"
+            }
+        ],
+        "maximum_paths": "4"
+    },
+    "ospf": {
+        "process_id": "1",
+        "networks": [
+            {
+                "network_address": "10.0.0.0",
+                "subnet_mask": "0.0.63.255",
+                "area": "0"
+            }
+        ]
+    },
+    "ipv6": [
+        {
+            "interface": "f0/0",
+            "ip": "2001:DB8:0:3::/64",
+            "ospf_area": "0",
+            "ospf_process_id": 10
+        },
+        {
+            "interface": "f1/0",
+            "ip": "2001:DB8:0:1::/64",
+            "ospf_area": "0",
+            "ospf_process_id": 10
+        },
+        {
+            "interface": "f1/1",
+            "ip": "2001:DB8:0:5::/64",
+            "ospf_area": "0",
+            "ospf_process_id": 10
+        },
+        {
+            "interface": "g2/0",
+            "ip": "2001:DB8:0:7::/64",
+            "ospf_area": "0",
+            "ospf_process_id": 10
+        }
+    ],
+    "hostname": "R3",
+    "management_ip": "198.51.100.4",
+    "username": "netlab",
+    "password": "netlab"
+}

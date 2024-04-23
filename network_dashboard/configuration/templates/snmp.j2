@@ -1,0 +1,8 @@
+ip access-list standard SNMP
+ permit any
+exit
+snmp-server user user1 snmpusers v3 auth sha password123744 priv aes 128 password123744
+snmp-server group snmpusers v3 priv write snmpuser access SNMP
+snmp-server view snmpuser iso included
+snmp-server enable traps
+snmp-server host {{ host }} version 3 priv user1 

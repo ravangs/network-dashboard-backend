@@ -1,0 +1,10 @@
+ipv6 unicast-routing
+{% for ipv6 in ipv6_configs %}
+interface {{ ipv6.interface }}
+ ipv6 address {{ ipv6.ip }} eui-64
+ ipv6 enable
+ ipv6 ospf {{ ipv6.ospf_process_id }} area {{ ipv6.ospf_area }}
+{% endfor %}
+!
+router ospf {{ ipv6_configs[0].ospf_process_id }}
+ maximum-paths 2

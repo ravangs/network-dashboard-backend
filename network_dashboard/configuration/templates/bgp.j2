@@ -1,0 +1,8 @@
+router bgp {{ bgp.asn }}
+{% for neighbor in bgp.neighbors %}
+ neighbor {{ neighbor.neighbor_ip }} remote-as {{ neighbor.remote_as }}
+{% endfor %}
+{% for network in bgp.networks %}
+ network {{ network.network }} mask {{ network.mask }}
+{% endfor %}
+maximum-paths {{ bgp.maximum_paths }}

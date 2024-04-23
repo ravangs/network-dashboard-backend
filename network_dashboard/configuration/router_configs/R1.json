@@ -1,0 +1,87 @@
+{
+    "interfaces": [
+        {
+            "interface": "f0/0",
+            "ip": "10.0.1.1",
+            "subnet": "255.255.255.252"
+        },
+        {
+            "interface": "f1/0",
+            "ip": "10.0.2.1",
+            "subnet": "255.255.255.252"
+        },
+        {
+            "interface": "f1/1",
+            "ip": "10.0.200.254",
+            "subnet": "255.255.255.0"
+        },
+        {
+            "interface": "g2/0",
+            "ip": "198.51.100.1",
+            "subnet": "255.255.255.0"
+        },
+        {
+            "interface": "lo0",
+            "ip": "1.1.1.1",
+            "subnet": "255.255.255.255"
+        }
+    ],
+    "bgp": {
+        "asn": "100",
+        "neighbors": [
+            {
+                "neighbor": "10.0.2.2",
+                "remote_as": "200"
+            },
+            {
+                "neighbor": "10.0.1.2",
+                "remote_as": "200"
+            }
+        ],
+        "networks": [
+            {
+                "network": "10.0.200.0",
+                "mask": "255.255.255.0"
+            },
+            {
+                "network": "1.1.1.1",
+                "mask": "255.255.255.255"
+            }
+        ],
+        "maximum_paths": "2"
+    },
+    "ospf": {
+        "process_id": "1",
+        "networks": [
+            {
+                "network_address": "10.0.0.0",
+                "subnet_mask": "0.0.63.255",
+                "area": "0"
+            }
+        ]
+    },
+    "ipv6": [
+        {
+            "interface": "f0/0",
+            "ip": "2001:DB8:0:1::/64",
+            "ospf_area": "0",
+            "ospf_process_id": 10
+        },
+        {
+            "interface": "f1/0",
+            "ip": "2001:DB8:0:2::/64",
+            "ospf_area": "0",
+            "ospf_process_id": 10
+        },
+        {
+            "interface": "f1/1",
+            "ip": "2001:DB8:0:100::/64",
+            "ospf_area": "0",
+            "ospf_process_id": 10
+        }
+    ],
+    "hostname": "R1",
+    "management_ip": "198.51.100.1",
+    "username": "netlab",
+    "password": "netlab"
+}
